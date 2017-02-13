@@ -2,7 +2,7 @@
 
 <html>
     <head>
-            <title>/ascii/</title>
+            <title>/Build-a-Blog</title>
     </head>
 
     <style type="text/css">
@@ -43,15 +43,15 @@
             margin: 20px auto;
         }
 
-        .art + .art {
+        .entry + .entry {
             margin-top: 20px;
         }
 
-        .art-title {
+        .entry-title {
             font-weight: bold;
         }
 
-        .art-body {
+        .entry-body {
             margin: 0;
             font-size: 17px;
         }
@@ -59,17 +59,17 @@
     </style>
 
     <body>
-     <h1>/ascii/</h1>
+     <h1>My Blog</h1>
 
      <form method="post">
          <label>
-             <div>title</div>
+             <div>Title</div>
              <input type="text" name="title" value="{{title}}">
         </label>
 
         <label>
-            <div>art</div>
-            <textarea name="art">{{art}}</textarea>
+            <div>Entry</div>
+            <textarea name="entry">{{entry}}</textarea>
         </label>
 
         <div class="error">{{error}}</div>
@@ -79,10 +79,10 @@
 
     <hr>
 
-    {% for art in arts %}
-    <div class ="art">
-        <div class="art-title">{{art.title}}</div>
-        <pre class="art-body">{{art.art}}</pre>
+    {% for entry in entries %}
+    <div class ="entry">
+        <div class="entry-title">{{entry.title}}</div>
+        <pre class="entry-body">{{entry.entry}}</pre>
     {% endfor %}
 
 
