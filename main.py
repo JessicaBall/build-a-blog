@@ -63,6 +63,13 @@ class MainPage(Handler):
             error = "Please complete both title and entry fields!"
             self.render_front(title, entry, error)
 
+class RecentPosts(Handler):
+    def render_front(self, title="", entry="", error=""):
+        entries= db.GqlQuery("SELECT * FROM Entry "
+                              "ORDER BY created DESC LIMIT 5")
+
+
 app = webapp2.WSGIApplication([
-    ('/', MainPage)
+    ('/', MainPage),
+    ('/blog', RecentPosts)
 ], debug=True)
