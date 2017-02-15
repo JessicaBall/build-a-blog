@@ -58,15 +58,19 @@ class MainPage(Handler):
             a = Entry(title = title, entry = entry)
             a.put()
 
-            self.redirect("/")
+            self.redirect("/")#self.redirect('/blog/%s' % str(a.key().id()))
         else:
-            error = "Please complete both title and entry fields!"
+            error = "Please complete both title and entry fields."
             self.render_front(title, entry, error)
 
 class RecentPosts(Handler):
-    def render_front(self, title="", entry="", error=""):
+    def render_recent(self, title="", entry="", error=""):
         entries= db.GqlQuery("SELECT * FROM Entry "
                               "ORDER BY created DESC LIMIT 5")
+
+        self.render("recent.html", title=title, entry=entry, error=error, entries=entries)
+
+
 
 
 app = webapp2.WSGIApplication([

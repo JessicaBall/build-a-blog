@@ -1,6 +1,26 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-            <title>Build-a-Blog</title>
+        <title>My Blog</title>
+        <style type="text/css">
+            .error {
+                color: red;
+            }
+        </style>
     </head>
+    <body>
+        <h1>
+            <a href="/">My Blog</a>
+        </h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Posts</a></li>
+        </ul>
+
+    <hr>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,9 +1,6 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-    <head>
-            <title>Build-a-Blog</title>
-    </head>
+{% block content %}
 
     <style type="text/css">
         body {
@@ -59,7 +56,7 @@
     </style>
 
     <body>
-     <h1>My Blog</h1>
+     <h1>Write a New Post!</h1>
 
      <form method="post">
          <label>
@@ -77,14 +74,5 @@
         <input type ="submit">
     </form>
 
-    <hr>
 
-    {% for entry in entries %}
-    <div class ="entry">
-        <div class="entry-title">{{entry.title}}</div>
-        <pre class="entry-body">{{entry.entry}}</pre>
-    {% endfor %}
-
-
-    </body>
-</html>
+{% endblock %}
