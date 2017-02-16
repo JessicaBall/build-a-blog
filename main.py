@@ -58,7 +58,7 @@ class MainPage(Handler):
             a = Entry(title = title, entry = entry)
             a.put()
 
-            self.redirect("/")#self.redirect('/blog/%s' % str(a.key().id()))
+            self.redirect('/blog/%s' % str(a.key().id()))#self.redirect("/")#
         else:
             error = "Please complete both title and entry fields."
             self.render_front(title, entry, error)
