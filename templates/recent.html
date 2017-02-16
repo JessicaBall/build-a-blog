@@ -5,7 +5,9 @@
     {% for entry in entries %}
     <div class ="entry">
         <div class="entry-title">{{entry.title}}</div>
-        <div class="entry-body">{{entry.entry}}</div>
+        <pre class="entry-body">{{entry.entry}}</pre>
+
+    <br><br>
     {% endfor %}
 
 {% endblock %}
