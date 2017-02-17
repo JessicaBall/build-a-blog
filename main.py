@@ -72,7 +72,11 @@ class RecentPosts(Handler):
 
 class ViewPostHandler(Handler):
     def get(self, id):
-        self.response.write(id)
+        Entry.all().filter('id', id)
+
+
+        self.render("singlepost.html", id = id)
+        #self.response.write(id)
 
 
 

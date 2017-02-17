@@ -4,7 +4,7 @@
 
     {% for entry in entries %}
     <div class ="entry">
-        <div class="entry-title">{{entry.title}}</div>
+        <a href='/blog/<id:\d+>' class="entry-title">{{entry.title}}</a>
         <pre class="entry-body">{{entry.entry}}</pre>
 
     <br><br>
