@@ -58,7 +58,7 @@ class MainPage(Handler):
             a = Entry(title = title, entry = entry)
             a.put()
 
-            self.redirect('/blog/%s' % str(a.key().id()))#self.redirect("/")
+            self.redirect('/blog/%s' % str(a.key().id()))
         else:
             error = "Please complete both title and entry fields."
             self.render_front(title, entry, error)
@@ -72,11 +72,10 @@ class RecentPosts(Handler):
 
 class ViewPostHandler(Handler):
     def get(self, id):
-        Entry.all().filter('id', id)
+        post = Entry.get_by_id(int(id))
 
+        self.render("singlepost.html", post = [post])
 
-        self.render("singlepost.html", id = id)
-        #self.response.write(id)
 
 
 
