@@ -74,7 +74,13 @@ class ViewPostHandler(Handler):
     def get(self, id):
         post = Entry.get_by_id(int(id))
 
-        self.render("singlepost.html", post = [post])
+        if post:
+            t = jinja_env.get_template("singlepost.html")
+            response = t.render(post=post)
+        else:
+            return ('404 Page Not Found')
+
+        self.response.out.write(response)
 
 
 
